@@ -62,18 +62,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PageObjects\TopOfPage.cs" />
+    <Compile Include="PageObjects\LogInPage.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebDrier\DriverUtils.cs" />
+    <Compile Include="TestData\User.cs" />
+    <Compile Include="Tests\LogInTest.cs" />
+    <Compile Include="WebDriver\DriverUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
