@@ -26,8 +26,10 @@ namespace AutomationFinalProject.Tests
 
                 var logInPage = new LogInPage(driver);
                 Thread.Sleep(1000);
-                logInPage.ClickUsername("admin");
-                logInPage.ClickPassword("2VLu=j^ykC");
+                logInPage.ClickUsername();
+                logInPage.FillOutUsername("admin");
+                logInPage.ClickPassword();
+                logInPage.FillOutPassword("2VLu=j^ykC");
                 logInPage.ClickLogin();
 
                 Thread.Sleep(10000);

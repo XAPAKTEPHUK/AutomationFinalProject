@@ -22,14 +22,23 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement Password => _driver.FindElement(By.Id("password"));
         private IWebElement Login => _driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[3]/div/div/button"));
 
-        public void ClickUsername(string username)
+        public void ClickUsername()
         {
             Username.Click();
         }
-
-        public void ClickPassword(string password)
+        public void FillOutUsername(string username)
         {
-            Password.Click();
+            Username.SendKeys(username);
+        }
+
+        public void ClickPassword()
+        {
+            Password.Click();           
+        }
+
+        public void FillOutPassword(string password)
+        {
+            Password.SendKeys(password);
         }
 
         public void ClickLogin()
