@@ -66,9 +66,8 @@
     <Compile Include="PageObjects\LogInPage.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestData\User.cs" />
-    <Compile Include="Tests\AddClientTest.cs" />
-    <Compile Include="Tests\LogInTest.cs" />
+    <Compile Include="TestData\Client.cs" />
+    <Compile Include="Tests\SST001.cs" />
     <Compile Include="WebDriver\DriverUtils.cs" />
   </ItemGroup>
   <ItemGroup>

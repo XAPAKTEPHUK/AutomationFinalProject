@@ -29,6 +29,8 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement State => driver.FindElement(By.Name("state"));
         private IWebElement ZipCode => driver.FindElement(By.Name("zipCode"));
         private IWebElement PhoneNumber => driver.FindElement(By.Name("phoneNumber"));
+        private IWebElement Email => driver.FindElement(By.Name("email"));
+
 
 
 
@@ -50,11 +52,12 @@ namespace AutomationFinalProject.PageObjects
             CompanyName.SendKeys(companyName);
         }
         
-        public void FilloutContactInformation(User user)
+        public void FilloutContactInformation(Client user)
         {
             FirstName.SendKeys(user.FirstName);
             LastName.SendKeys(user.LastName);
             PhoneNumber.SendKeys(user.PhoneNumber);
+            Email.SendKeys(user.Email);
         }
 
     }

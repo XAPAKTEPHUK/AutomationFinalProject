@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AutomationFinalProject.TestData
 {
-    public class User
+    public class Client
     {
-        public User()
+        public Client()
         {
             SeedRandomData();       
         }
@@ -18,8 +18,6 @@ namespace AutomationFinalProject.TestData
         public string LastName;
         public string PhoneNumber;
         public string Email;
-        public string UserName;
-        public string PassWord;
         public string Company;
 
 
@@ -29,8 +27,8 @@ namespace AutomationFinalProject.TestData
             PhoneNumber = faker.Phone.PhoneNumber();
             Email = faker.Internet.Email();
             this.FirstName = faker.Name.FirstName();
-            this.LastName = faker.Name.LastName();            
-        }
+            this.LastName = faker.Name.LastName();             
+        }       
 
     }
 }
