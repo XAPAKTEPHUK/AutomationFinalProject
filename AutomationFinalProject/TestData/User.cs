@@ -19,7 +19,8 @@ namespace AutomationFinalProject.TestData
         public string PhoneNumber;
         public string Email;
         public string UserName;
-        public string PassWord;    
+        public string PassWord;
+        public string Company;
 
 
         public void SeedRandomData()
@@ -28,7 +29,7 @@ namespace AutomationFinalProject.TestData
             PhoneNumber = faker.Phone.PhoneNumber();
             Email = faker.Internet.Email();
             this.FirstName = faker.Name.FirstName();
-            this.LastName = faker.Name.LastName();
+            this.LastName = faker.Name.LastName();            
         }
 
     }

@@ -20,7 +20,7 @@ namespace AutomationFinalProject.PageObjects
 
         private IWebElement Username => _driver.FindElement(By.Id("username"));
         private IWebElement Password => _driver.FindElement(By.Id("password"));
-        private IWebElement Login => _driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[3]/div/div/button"));
+        private IWebElement Login => _driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[3]/div/div/button"));//have to change it to a more proper selector
 
         public void ClickUsername()
         {
@@ -45,5 +45,6 @@ namespace AutomationFinalProject.PageObjects
         {
             Login.Click();
         }
+        
     }
 }

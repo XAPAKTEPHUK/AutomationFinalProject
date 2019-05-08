@@ -10,18 +10,19 @@ using Shouldly;
 using AutomationFinalProject.Configuration;
 using AutomationFinalProject.WebDriver;
 
+
 namespace AutomationFinalProject.Tests
 {
     [TestFixture]
     public class LogInTest
     {
-        [Test]
+        [Test, Order (1)]
         public void LogInPage()
         {
-            var user = new User();           
 
             using (var driver = DriverUtils.CreateWebDriver())
             {
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10); // helps to deal with the timeout without using > Thread.Sleep <
                 driver.Navigate().GoToUrl(Config.GetUrl());
 
                 var logInPage = new LogInPage(driver);
@@ -31,11 +32,32 @@ namespace AutomationFinalProject.Tests
                 logInPage.ClickPassword();
                 logInPage.FillOutPassword("2VLu=j^ykC");
                 logInPage.ClickLogin();
+                Thread.Sleep(1000);
 
-                Thread.Sleep(10000);
+                var addClientPage = new AddClientPage(driver);
+
+                addClientPage.ClickAddClient();
+                
+
+                addClientPage.Company("Bredemann");
+                
+                var user = new User();
+                addClientPage.FilloutContactInformation(user);
+                Thread.Sleep(1000);
             }
-
-
         }
+       /* [Test, Order (2)]
+        public void ClientPage()
+        {
+            using (var driver = DriverUtils.CreateWebDriver())
+            {
+                var addClientPage = new AddClientPage(driver);
+
+                addClientPage.ClickAddClient();
+                Thread.Sleep(1000);
+
+
+            }
+        }*/
     }
 }
