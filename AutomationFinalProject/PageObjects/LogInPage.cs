@@ -22,7 +22,7 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement Password => _driver.FindElement(By.Id("password"));
         private IWebElement Login => _driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[3]/div/div/button"));//have to change it to a more proper selector
         private IWebElement Admin => _driver.FindElement(By.ClassName("dropdown-toggle"));
-        private IWebElement LogOut => _driver.FindElement(By.XPath("//*[@id='navbar']/ul/li[5]/ul/li/a"));
+        private IWebElement LogOut => _driver.FindElement(By.XPath("//*[@id='navbar']/ul/li[5]/ul/li/a"));//have to change it to a more proper selector
         public void FillOutUsername(string username)
         {
             Username.Click();

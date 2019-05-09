@@ -18,8 +18,8 @@ namespace AutomationFinalProject.PageObjects
         }
 
         private IWebElement AddClient => driver.FindElement(By.PartialLinkText("Add Client")); 
-        private IWebElement TeacherSelect => driver.FindElement(By.XPath("//*[@name='techerId']")); //does not work
-        private SelectElement TeacherOne => new SelectElement(driver.FindElement(By.XPath("//*[@name='techerId']"))); //does not work
+        private IWebElement TeacherSelect => driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[2]/div/div/select")); 
+        private SelectElement TeacherOne => new SelectElement(driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[2]/div/div/select"))); 
         private IWebElement CompanyName => driver.FindElement(By.Name("company"));
         private IWebElement FirstName => driver.FindElement(By.Name("firstName"));
         private IWebElement LastName => driver.FindElement(By.Name("lastName"));
@@ -30,6 +30,7 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement ZipCode => driver.FindElement(By.Name("zipCode"));
         private IWebElement PhoneNumber => driver.FindElement(By.Name("phoneNumber"));
         private IWebElement Email => driver.FindElement(By.Name("email"));
+        private IWebElement SaveButton => driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[22]/div/div/button"));//need better selector
 
 
 
@@ -39,13 +40,14 @@ namespace AutomationFinalProject.PageObjects
             AddClient.Click();  
         }
        
-        /*
+        
         public void SelectTeacherID(string teacherID)
         {
             TeacherSelect.Click();
             TeacherOne.SelectByText(teacherID);
+
         }
-        */
+        
 
         public void Company(string companyName)
         {
@@ -58,6 +60,10 @@ namespace AutomationFinalProject.PageObjects
             LastName.SendKeys(user.LastName);
             PhoneNumber.SendKeys(user.PhoneNumber);
             Email.SendKeys(user.Email);
+        }
+        public void ClickSave()
+        {
+            SaveButton.Click();
         }
 
     }
