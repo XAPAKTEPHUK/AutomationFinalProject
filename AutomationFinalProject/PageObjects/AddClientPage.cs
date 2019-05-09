@@ -18,8 +18,8 @@ namespace AutomationFinalProject.PageObjects
         }
 
         private IWebElement AddClient => driver.FindElement(By.PartialLinkText("Add Client")); 
-        private IWebElement TeacherSelect => driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[2]/div/div/select")); 
-        private SelectElement TeacherOne => new SelectElement(driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[2]/div/div/select"))); 
+        private IWebElement TeacherSelect => driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[2]/div/div/select")); //need better selector
+        private SelectElement TeacherOne => new SelectElement(driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[2]/div/div/select"))); //need better selector
         private IWebElement CompanyName => driver.FindElement(By.Name("company"));
         private IWebElement FirstName => driver.FindElement(By.Name("firstName"));
         private IWebElement LastName => driver.FindElement(By.Name("lastName"));
