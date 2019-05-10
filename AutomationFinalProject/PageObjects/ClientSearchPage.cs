@@ -9,7 +9,7 @@ using AutomationFinalProject.TestData;
 
 namespace AutomationFinalProject.PageObjects
 {
-    class ClientSearchPage
+    public class ClientSearchPage
     {
         
         private IWebDriver driver;
@@ -18,9 +18,9 @@ namespace AutomationFinalProject.PageObjects
             driver = _driver;
         }
 
-        private IWebElement SearchClients => driver.FindElement(By.XPath("//*[@id='navbar']/ul/li[2]/a"));
+        private IWebElement SearchClients => driver.FindElement(By.XPath("//*[@id='navbar']/ul/li[2]/a")); //have to change it to a more proper selector
         private IWebElement SearchField => driver.FindElement(By.Id("q"));
-        private IWebElement SearchButton => driver.FindElement(By.XPath("//*[@id='root']/div/div/div[2]/form/button"));
+        private IWebElement SearchButton => driver.FindElement(By.XPath("//*[@id='root']/div/div/div[2]/form/button")); //have to change it to a more proper selector
 
         public void ClickSearchClient()
         {
