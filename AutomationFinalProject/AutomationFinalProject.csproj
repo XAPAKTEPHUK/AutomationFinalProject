@@ -65,6 +65,7 @@
     <Compile Include="PageObjects\AddClientPage.cs" />
     <Compile Include="PageObjects\ClientSearchPage.cs" />
     <Compile Include="PageObjects\DeleteClientPage.cs" />
+    <Compile Include="PageObjects\EditClientPage.cs" />
     <Compile Include="PageObjects\LogInPage.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Tests\SST002.cs" />
     <Compile Include="Tests\SST003.cs" />
     <Compile Include="Tests\SST004.cs" />
+    <Compile Include="Tests\SST005.cs" />
     <Compile Include="WebDriver\DriverUtils.cs" />
   </ItemGroup>
   <ItemGroup>

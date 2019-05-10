@@ -12,10 +12,10 @@ using AutomationFinalProject.WebDriver;
 
 namespace AutomationFinalProject.Tests
 {
-    class SST004
+    class SST005
     {
         public const string username = "admin";
-        public const string password = "2VLu=j^ykC";        
+        public const string password = "2VLu=j^ykC";
 
         [Test]
         public void DeleteClientPage()
@@ -40,24 +40,24 @@ namespace AutomationFinalProject.Tests
 
                 addClientPage.FilloutContactInformation(client);
                 addClientPage.ClickSave();
-                Thread.Sleep(1000);
-
+                
                 var deleteClientPage = new DeleteClientPage(driver);
 
                 var IdNumber = deleteClientPage.Id();
-                deleteClientPage.Xbutton();
+                deleteClientPage.IdSelect();
                 Thread.Sleep(1000);
-                deleteClientPage.ConfirmClick();
-                Thread.Sleep(1000);
-               
 
-                var clientSearchPage = new ClientSearchPage(driver);
+                var editClientPage = new EditClientPage(driver);
 
-                clientSearchPage.Search(IdNumber);
-                clientSearchPage.ClickSearch();
-                Thread.Sleep(1000);
+                editClientPage.ChangeFirst("Ivan");
+                editClientPage.ChangeLast("Boychuk");
+                editClientPage.ChangeEMail("ivanboychuk@bredemann.com");
+                editClientPage.ClickSave();
+
+                deleteClientPage.IdSelect();
+                Thread.Sleep(10000);
 
             }
         }
     }
-}
+}   

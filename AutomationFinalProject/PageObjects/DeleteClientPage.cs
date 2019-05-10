@@ -18,9 +18,9 @@ namespace AutomationFinalProject.PageObjects
         }
         //private IWebElement XButton => _driver.FindElement(By.LinkText("delete"));
         //private IWebElement ID => _driver.FindElement(By.TagName("Click To Edit"));
-        private IWebElement ID => _driver.FindElement(By.XPath("//*[@id='root']/div/div/div[3]/table/tbody/tr/td[1]/a"));
-        private IWebElement XButton => _driver.FindElement(By.XPath("//*[@id='root']/div/div/div[3]/table/tbody/tr/td[6]/a/span"));
-        private IWebElement Confirm => _driver.FindElement(By.XPath("//*[@id='removeQuestion']/div[1]/div[2]/button[1]"));
+        private IWebElement ID => _driver.FindElement(By.XPath("//*[@id='root']/div/div/div[3]/table/tbody/tr/td[1]/a")); //have to change it to a more proper selector
+        private IWebElement XButton => _driver.FindElement(By.XPath("//*[@id='root']/div/div/div[3]/table/tbody/tr/td[6]/a/span")); //have to change it to a more proper selector
+        private IWebElement Confirm => _driver.FindElement(By.XPath("//*[@id='removeQuestion']/div[1]/div[2]/button[1]")); //have to change it to a more proper selector
 
         public void Xbutton()
         {
@@ -30,6 +30,10 @@ namespace AutomationFinalProject.PageObjects
         public string Id()
         {
            return ID.Text;
+        }
+        public void IdSelect()
+        {
+            ID.Click();
         }
 
         public void ConfirmClick()
