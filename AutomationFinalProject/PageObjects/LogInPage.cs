@@ -41,6 +41,13 @@ namespace AutomationFinalProject.PageObjects
             Login.Click();
         }
 
+       public string GetAdminURL()
+        {
+            string URL = Admin.GetAttribute("href");
+            return URL;
+            
+        }
+
         public void ClickLogOut()
         {
             Admin.Click();

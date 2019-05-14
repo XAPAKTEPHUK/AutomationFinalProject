@@ -1,6 +1,7 @@
 ﻿/* Config Class
  * Used to get Environment, Browser and corresponding URLs variable values` from > App.config <
- **/using System;
+ **/
+ using System;
 using System.Collections.Generic; 
 using System.Configuration; //need to add System.Configuration in References in order to use
 using System.Linq;

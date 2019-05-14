@@ -16,9 +16,7 @@ namespace AutomationFinalProject.Tests
     [TestFixture]
     public class SST001
     {
-        public const string username = "admin";
-        public const string password = "2VLu=j^ykC";
-
+        
         [Test]
         public static void LogInPage()
         {
@@ -27,11 +25,26 @@ namespace AutomationFinalProject.Tests
             {
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10); // helps to deal with the timeout without using > Thread.Sleep <
                 driver.Navigate().GoToUrl(Config.GetUrl());
+
+                Thread.Sleep(1000);
+                driver.Title.ShouldBe(Constants.LogInPage());
+
                 var logInPage = new LogInPage(driver);                           
-                logInPage.FillOutUsername(username);
-                logInPage.FillOutPassword(password);
-                logInPage.ClickLogin();                
-                logInPage.ClickLogOut();               
+                logInPage.FillOutUsername(Constants.Username());
+                logInPage.FillOutPassword(Constants.Password());
+                logInPage.ClickLogin();
+
+                Thread.Sleep(1000);
+
+                driver.Title.ShouldBe(Constants.ClientPage());
+
+                logInPage.GetAdminURL().ShouldBe(Constants.AdminURL());
+
+                logInPage.ClickLogOut();
+
+                Thread.Sleep(1000);
+
+                driver.Title.ShouldBe(Constants.LogInPage());
 
             }
         }

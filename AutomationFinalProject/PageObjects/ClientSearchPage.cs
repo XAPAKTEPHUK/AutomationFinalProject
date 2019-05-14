@@ -19,7 +19,10 @@ namespace AutomationFinalProject.PageObjects
 
         private IWebElement SearchClients => driver.FindElement(By.XPath("//*[@id='navbar']/ul/li[2]/a")); //have to change it to a more proper selector
         private IWebElement SearchField => driver.FindElement(By.Id("q"));
-        private IWebElement SearchButton => driver.FindElement(By.XPath("//*[@class='btn btn-primary']")); 
+        private IWebElement SearchButton => driver.FindElement(By.XPath("//*[@class='btn btn-primary']"));
+        private IWebElement CheckFirstName => driver.FindElement(By.XPath("//*[contains(text(),'Iryna')]"));
+        private IWebElement CheckLastName => driver.FindElement(By.XPath("//*[contains(text(),'Shch')]"));
+
 
         public void ClickSearchClient()
         {
@@ -34,6 +37,15 @@ namespace AutomationFinalProject.PageObjects
         public void ClickSearch()
         {
             SearchButton.Click();
+        }
+        public string FirstName()
+        {
+           return CheckFirstName.Text;
+        }
+
+        public string LastName()
+        {
+            return CheckLastName.Text;
         }
 
     }

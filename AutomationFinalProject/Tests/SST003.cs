@@ -15,10 +15,7 @@ namespace AutomationFinalProject.Tests
     [TestFixture]
     class SST003
     {
-        public const string username = "admin";
-        public const string password = "2VLu=j^ykC";
-        const string eMail = "ilka@mailinator.com";
-
+       
         [Test]
         public void ClientSearchPage()
         {
@@ -26,15 +23,24 @@ namespace AutomationFinalProject.Tests
             {
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10); // helps to deal with the timeout without using > Thread.Sleep <
                 driver.Navigate().GoToUrl(Config.GetUrl());
+
+                Thread.Sleep(1000);
+                driver.Title.ShouldBe(Constants.LogInPage());
+
                 var logInPage = new LogInPage(driver);
-                logInPage.FillOutUsername(username);
-                logInPage.FillOutPassword(password);
+                logInPage.FillOutUsername(Constants.Username());
+                logInPage.FillOutPassword(Constants.Password());
                 logInPage.ClickLogin();
+
+                Thread.Sleep(1000);
+                driver.Title.ShouldBe(Constants.ClientPage());
 
                 var clientSearchPage = new ClientSearchPage(driver);
                 clientSearchPage.ClickSearchClient();
-                clientSearchPage.Search(eMail);
+                clientSearchPage.Search(Constants.Email());
                 clientSearchPage.ClickSearch();
+                clientSearchPage.FirstName().ShouldBe(Constants.Iryna());
+                clientSearchPage.LastName().ShouldBe(Constants.Shch());
                 Thread.Sleep(5000);
             }
         }

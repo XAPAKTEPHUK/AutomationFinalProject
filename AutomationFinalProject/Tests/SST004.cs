@@ -13,9 +13,7 @@ using AutomationFinalProject.WebDriver;
 namespace AutomationFinalProject.Tests
 {
     class SST004
-    {
-        public const string username = "admin";
-        public const string password = "2VLu=j^ykC";        
+    {          
 
         [Test]
         public void DeleteClientPage()
@@ -24,16 +22,23 @@ namespace AutomationFinalProject.Tests
             {
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10); // helps to deal with the timeout without using > Thread.Sleep <
                 driver.Navigate().GoToUrl(Config.GetUrl());
+
+                Thread.Sleep(1000);
+                driver.Title.ShouldBe(Constants.LogInPage());
+
                 var logInPage = new LogInPage(driver);
-                logInPage.FillOutUsername(username);
-                logInPage.FillOutPassword(password);
+                logInPage.FillOutUsername(Constants.Username());
+                logInPage.FillOutPassword(Constants.Password());
                 logInPage.ClickLogin();
+
+                Thread.Sleep(1000);
+                driver.Title.ShouldBe(Constants.ClientPage());
 
                 var addClientPage = new AddClientPage(driver);
 
                 addClientPage.ClickAddClient();
 
-                addClientPage.SelectTeacherID("Teacher One");
+                addClientPage.SelectTeacherID(Constants.TeacherID());
                 
                 var client = new Client();
 
@@ -44,6 +49,7 @@ namespace AutomationFinalProject.Tests
                 var deleteClientPage = new DeleteClientPage(driver);
 
                 var IdNumber = deleteClientPage.Id();
+
                 deleteClientPage.Xbutton();
                 Thread.Sleep(1000);
                 deleteClientPage.ConfirmClick();
@@ -55,6 +61,8 @@ namespace AutomationFinalProject.Tests
                 clientSearchPage.Search(IdNumber);
                 clientSearchPage.ClickSearch();
                 Thread.Sleep(1000);
+
+                deleteClientPage.NoRecordFound().ShouldBe(Constants.NoR());
 
             }
         }

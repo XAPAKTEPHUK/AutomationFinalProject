@@ -18,7 +18,8 @@ namespace AutomationFinalProject.PageObjects
         }
         private IWebElement ID => _driver.FindElement(By.XPath("//*[@class='table']/tbody/tr/td[1]/a")); //have to change it to a more proper selector
         private IWebElement XButton => _driver.FindElement(By.XPath("//*[@class='glyphicon glyphicon-remove']")); 
-        private IWebElement Confirm => _driver.FindElement(By.XPath("//*[contains(text(),'Confirm')]")); 
+        private IWebElement Confirm => _driver.FindElement(By.XPath("//*[contains(text(),'Confirm')]"));
+        private IWebElement NoRecord => _driver.FindElement(By.XPath("//*[contains(text(),'No records found')]"));
 
         public void Xbutton()
         {
@@ -37,6 +38,11 @@ namespace AutomationFinalProject.PageObjects
         public void ConfirmClick()
         {
             Confirm.Click();
+        }
+
+        public string NoRecordFound()
+        {
+            return NoRecord.Text;
         }
 
 
