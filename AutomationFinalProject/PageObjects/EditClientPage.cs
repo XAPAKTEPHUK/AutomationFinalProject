@@ -21,7 +21,7 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement FirstName => _driver.FindElement(By.Name("firstName"));
         private IWebElement LastName => _driver.FindElement(By.Name("lastName"));
         private IWebElement Email => _driver.FindElement(By.Name("email"));
-        private IWebElement SaveButton => _driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[22]/div/div/button"));
+        private IWebElement SaveButton => _driver.FindElement(By.XPath("//*[@class='btn btn-primary']"));
 
         public void ChangeFirst(string newFirst)
         {

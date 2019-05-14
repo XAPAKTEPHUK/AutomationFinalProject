@@ -31,8 +31,7 @@ namespace AutomationFinalProject.Tests
                 logInPage.FillOutUsername(username);
                 logInPage.FillOutPassword(password);
                 logInPage.ClickLogin();                
-                logInPage.ClickLogOut();
-                
+                logInPage.ClickLogOut();               
 
             }
         }

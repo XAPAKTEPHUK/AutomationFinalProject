@@ -36,8 +36,7 @@ namespace AutomationFinalProject.Tests
                 addClientPage.ClickAddClient();
 
                 addClientPage.SelectTeacherID("Teacher One");
-                addClientPage.Company("Bredemann");
-
+                
                 var client = new Client();
                 addClientPage.FilloutContactInformation(client);
                 addClientPage.ClickSave();

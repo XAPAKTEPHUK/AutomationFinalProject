@@ -27,7 +27,8 @@ namespace AutomationFinalProject.TestData
             PhoneNumber = faker.Phone.PhoneNumber();
             Email = faker.Internet.Email();
             this.FirstName = faker.Name.FirstName();
-            this.LastName = faker.Name.LastName();             
+            this.LastName = faker.Name.LastName();
+            this.Company = faker.Company.CompanyName();
         }       
 
     }

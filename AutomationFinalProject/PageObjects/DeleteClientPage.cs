@@ -16,11 +16,9 @@ namespace AutomationFinalProject.PageObjects
         {
             _driver = driver;
         }
-        //private IWebElement XButton => _driver.FindElement(By.LinkText("delete"));
-        //private IWebElement ID => _driver.FindElement(By.TagName("Click To Edit"));
-        private IWebElement ID => _driver.FindElement(By.XPath("//*[@id='root']/div/div/div[3]/table/tbody/tr/td[1]/a")); //have to change it to a more proper selector
-        private IWebElement XButton => _driver.FindElement(By.XPath("//*[@id='root']/div/div/div[3]/table/tbody/tr/td[6]/a/span")); //have to change it to a more proper selector
-        private IWebElement Confirm => _driver.FindElement(By.XPath("//*[@id='removeQuestion']/div[1]/div[2]/button[1]")); //have to change it to a more proper selector
+        private IWebElement ID => _driver.FindElement(By.XPath("//*[@class='table']/tbody/tr/td[1]/a")); //have to change it to a more proper selector
+        private IWebElement XButton => _driver.FindElement(By.XPath("//*[@class='glyphicon glyphicon-remove']")); 
+        private IWebElement Confirm => _driver.FindElement(By.XPath("//*[contains(text(),'Confirm')]")); 
 
         public void Xbutton()
         {

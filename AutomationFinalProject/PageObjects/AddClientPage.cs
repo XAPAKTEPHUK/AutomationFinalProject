@@ -18,8 +18,8 @@ namespace AutomationFinalProject.PageObjects
         }
 
         private IWebElement AddClient => driver.FindElement(By.PartialLinkText("Add Client")); 
-        private IWebElement TeacherSelect => driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[2]/div/div/select")); //need better selector
-        private SelectElement TeacherOne => new SelectElement(driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[2]/div/div/select"))); //need better selector
+        private IWebElement TeacherSelect => driver.FindElement(By.XPath("//*[@name='teacherId']"));
+        private SelectElement TeacherOne => new SelectElement(driver.FindElement(By.XPath("//*[@name='teacherId']"))); 
         private IWebElement CompanyName => driver.FindElement(By.Name("company"));
         private IWebElement FirstName => driver.FindElement(By.Name("firstName"));
         private IWebElement LastName => driver.FindElement(By.Name("lastName"));
@@ -30,29 +30,20 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement ZipCode => driver.FindElement(By.Name("zipCode"));
         private IWebElement PhoneNumber => driver.FindElement(By.Name("phoneNumber"));
         private IWebElement Email => driver.FindElement(By.Name("email"));
-        private IWebElement SaveButton => driver.FindElement(By.XPath("//*[@id='root']/div/div/form/div[22]/div/div/button"));//need better selector
-
-
-
-
+        private IWebElement SaveButton => driver.FindElement(By.XPath("//*[@class='btn btn-primary']"));
+                       
         public void ClickAddClient()
         {
             AddClient.Click();  
         }
-       
-        
+               
         public void SelectTeacherID(string teacherID)
         {
             TeacherSelect.Click();
             TeacherOne.SelectByText(teacherID);
 
-        }
-        
-
-        public void Company(string companyName)
-        {
-            CompanyName.SendKeys(companyName);
-        }
+        }       
+       
         
         public void FilloutContactInformation(Client user)
         {
@@ -60,6 +51,9 @@ namespace AutomationFinalProject.PageObjects
             LastName.SendKeys(user.LastName);
             PhoneNumber.SendKeys(user.PhoneNumber);
             Email.SendKeys(user.Email);
+            CompanyName.SendKeys(user.Company);
+
+
         }
         public void ClickSave()
         {
