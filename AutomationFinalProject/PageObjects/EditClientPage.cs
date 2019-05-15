@@ -23,13 +23,15 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement Email => _driver.FindElement(By.Name("email"));
         private IWebElement SaveButton => _driver.FindElement(By.XPath("//*[@class='btn btn-primary']"));
 
-        public void ChangeFirst(string newFirst)
+	    //TODO: The name of the mehod has to be improved
+		public void ChangeFirst(string newFirst)
         {
             FirstName.Clear();
             FirstName.SendKeys(newFirst);
         }
 
-        public void ChangeLast(string newLast)
+	    //TODO: The name of the mehod has to be improved
+		public void ChangeLast(string newLast)
         {
             LastName.Clear();
             LastName.SendKeys(newLast);

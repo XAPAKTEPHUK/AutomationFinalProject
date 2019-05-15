@@ -14,6 +14,8 @@ using AutomationFinalProject.WebDriver;
 namespace AutomationFinalProject.Tests
 {
     [TestFixture]
+
+	//TODO: the name of the class is difficult to understand
     public class SST001
     {
         

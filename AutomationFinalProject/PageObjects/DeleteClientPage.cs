@@ -9,6 +9,7 @@ using AutomationFinalProject.TestData;
 
 namespace AutomationFinalProject.PageObjects
 {
+	//TODO: as far as I undestand, this page's name should be ClientsPage
     public class DeleteClientPage
     {
         private IWebDriver _driver;
@@ -16,35 +17,41 @@ namespace AutomationFinalProject.PageObjects
         {
             _driver = driver;
         }
+
+		//TODO: the xpath needs to be improved
         private IWebElement ID => _driver.FindElement(By.XPath("//*[@class='table']/tbody/tr/td[1]/a")); //have to change it to a more proper selector
         private IWebElement XButton => _driver.FindElement(By.XPath("//*[@class='glyphicon glyphicon-remove']")); 
         private IWebElement Confirm => _driver.FindElement(By.XPath("//*[contains(text(),'Confirm')]"));
         private IWebElement NoRecord => _driver.FindElement(By.XPath("//*[contains(text(),'No records found')]"));
 
+		//TODO: The name of the mehod has to be improved
         public void Xbutton()
         {
             XButton.Click();
         }
 
-        public string Id()
+	    //TODO: The name of the mehod has to be improved
+		public string Id()
         {
            return ID.Text;
         }
-        public void IdSelect()
+
+	    //TODO: The name of the mehod has to be improved
+		public void IdSelect()
         {
             ID.Click();
         }
 
-        public void ConfirmClick()
+	    //TODO: The name of the mehod has to be improved
+		public void ConfirmClick()
         {
             Confirm.Click();
         }
 
-        public string NoRecordFound()
+	    //TODO: The name of the mehod has to be improved
+		public string NoRecordFound()
         {
             return NoRecord.Text;
         }
-
-
     }
 }

@@ -22,17 +22,20 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement Password => _driver.FindElement(By.Id("password"));
         private IWebElement Login => _driver.FindElement(By.XPath("//*[@class='input-group']/button"));
         private IWebElement Admin => _driver.FindElement(By.ClassName("dropdown-toggle"));
+
         private IWebElement LogOut => _driver.FindElement(By.XPath("//*[@class='dropdown-menu']/li/a"));//have to change it to a more proper selector
 
         public void FillOutUsername(string username)
         {
+			//TODO: why do you need Click here?
             Username.Click();
             Username.SendKeys(username);
         }
                
         public void FillOutPassword(string password)
         {
-            Password.Click();
+	        //TODO: why do you need Click here?
+			Password.Click();
             Password.SendKeys(password);
         }
 
@@ -40,6 +43,8 @@ namespace AutomationFinalProject.PageObjects
         {
             Login.Click();
         }
+
+		//TODO: you can also have LogIn method, which would enter the uername, the password and click the Login button. 2 in one...
 
        public string GetAdminURL()
         {

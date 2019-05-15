@@ -12,9 +12,11 @@ using AutomationFinalProject.WebDriver;
 
 namespace AutomationFinalProject.Tests
 {
-    class SST005
+	//TODO: the name of the class is difficult to understand
+	class SST005
     {
         [Test]
+		//TODO: the name of the test is incorrect
         public void DeleteClientPage()
         {
             using (var driver = DriverUtils.CreateWebDriver())
@@ -22,16 +24,16 @@ namespace AutomationFinalProject.Tests
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10); // helps to deal with the timeout without using > Thread.Sleep <
                 driver.Navigate().GoToUrl(Config.GetUrl());
 
-                Thread.Sleep(1000);
-                driver.Title.ShouldBe(Constants.LogInPage());
+                //Thread.Sleep(1000);
+                //driver.Title.ShouldBe(Constants.LogInPage());
 
                 var logInPage = new LogInPage(driver);
                 logInPage.FillOutUsername(Constants.Username());
                 logInPage.FillOutPassword(Constants.Password());
                 logInPage.ClickLogin();
 
-                Thread.Sleep(1000);
-                driver.Title.ShouldBe(Constants.ClientPage());
+                //Thread.Sleep(1000);
+                //driver.Title.ShouldBe(Constants.ClientPage());
 
                 var addClientPage = new AddClientPage(driver);
 
@@ -44,6 +46,7 @@ namespace AutomationFinalProject.Tests
                 addClientPage.FilloutContactInformation(client);
                 addClientPage.ClickSave();
                 
+				//TODO: it's misleading that the name of the page is deleteClientPage. I would rename this class to ClientsPage, as it is in the Header of the page
                 var deleteClientPage = new DeleteClientPage(driver);
 
                 var IdNumber = deleteClientPage.Id();
@@ -60,7 +63,9 @@ namespace AutomationFinalProject.Tests
                 editClientPage.ClickSave();
 
                 //deleteClientPage.IdSelect();
-                Thread.Sleep(10000);
+                //Thread.Sleep(10000);
+
+				//TODO: verification???
 
             }
         }

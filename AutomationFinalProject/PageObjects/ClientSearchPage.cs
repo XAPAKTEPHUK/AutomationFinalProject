@@ -17,9 +17,12 @@ namespace AutomationFinalProject.PageObjects
             driver = _driver;
         }
 
+		//TODO: the XPAth needs to be improved
         private IWebElement SearchClients => driver.FindElement(By.XPath("//*[@id='navbar']/ul/li[2]/a")); //have to change it to a more proper selector
         private IWebElement SearchField => driver.FindElement(By.Id("q"));
         private IWebElement SearchButton => driver.FindElement(By.XPath("//*[@class='btn btn-primary']"));
+
+		//TODO: not a good idea to hardcode values which can be changes into locators. Also the name of the elements are not correct - this is just an element, it does not check anything
         private IWebElement CheckFirstName => driver.FindElement(By.XPath("//*[contains(text(),'Iryna')]"));
         private IWebElement CheckLastName => driver.FindElement(By.XPath("//*[contains(text(),'Shch')]"));
 
@@ -29,6 +32,7 @@ namespace AutomationFinalProject.PageObjects
             SearchClients.Click();           
         }
 
+		//TODO: the name of the method is not clear
         public void Search(string mail)
         {
 
@@ -38,12 +42,15 @@ namespace AutomationFinalProject.PageObjects
         {
             SearchButton.Click();
         }
-        public string FirstName()
+
+	    //TODO: the name of the method is not clear
+		public string FirstName()
         {
            return CheckFirstName.Text;
         }
 
-        public string LastName()
+	    //TODO: the name of the method is not clear
+		public string LastName()
         {
             return CheckLastName.Text;
         }

@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace AutomationFinalProject.TestData
 {
+	//TODO: you can have a class for your test data, but it's not a good idea to combine everything in one class.
+	//Please split the class into a few logical ones. For example - constants for Login page, constants for Client page, etc.
     static class Constants
     {
-        public static string Username()
+		//TODO: you do not have to write a method to get a constant
+	   // public const string Username = "admin"; would be enough.
+
+		public static string Username()
         {
             return Constant("admin");
         }
 
+		//TODO: same as above for all other constants.
+
+		//Also what will you do if different environments need different credentials?
         public static string Password()
         {
             return Constant("2VLu=j^ykC");
@@ -78,7 +86,7 @@ namespace AutomationFinalProject.TestData
             return Constant("ivanboychuk@bredemann.com");
         }
 
-
+		//TODO: no need for this method at all
         private static string Constant(string v)
         {
             return v;

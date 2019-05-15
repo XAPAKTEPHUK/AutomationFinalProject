@@ -18,11 +18,18 @@ namespace AutomationFinalProject.PageObjects
         }
 
         private IWebElement AddClient => driver.FindElement(By.PartialLinkText("Add Client")); 
-        private IWebElement TeacherSelect => driver.FindElement(By.XPath("//*[@name='teacherId']"));
-        private SelectElement TeacherOne => new SelectElement(driver.FindElement(By.XPath("//*[@name='teacherId']"))); 
+
+		//TODO: please create select element like:
+        //private IWebElement TeacherSelect => driver.FindElement(By.XPath("//*[@name='teacherId']"));
+		private SelectElement TeacherSelect => new SelectElement(driver.FindElement(By.Name("teacherId")));
+
+		//TODO: you do not need this element
+		//private SelectElement TeacherOne => new SelectElement(driver.FindElement(By.XPath("//*[@name='teacherId']"))); 
         private IWebElement CompanyName => driver.FindElement(By.Name("company"));
         private IWebElement FirstName => driver.FindElement(By.Name("firstName"));
         private IWebElement LastName => driver.FindElement(By.Name("lastName"));
+
+		//TODO: Address is misspelled
         private IWebElement AdreesOne => driver.FindElement(By.Name("adress1"));
         private IWebElement City => driver.FindElement(By.Name("city"));
         private IWebElement Country => driver.FindElement(By.Name("country"));
@@ -39,9 +46,7 @@ namespace AutomationFinalProject.PageObjects
                
         public void SelectTeacherID(string teacherID)
         {
-            TeacherSelect.Click();
-            TeacherOne.SelectByText(teacherID);
-
+            TeacherSelect.SelectByText(teacherID);
         }       
        
         
