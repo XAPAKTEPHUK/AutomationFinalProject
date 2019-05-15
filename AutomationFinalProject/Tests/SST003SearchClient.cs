@@ -14,7 +14,7 @@ namespace AutomationFinalProject.Tests
 {
     [TestFixture]
     
-	class SST003ClientSearch
+	class SST003SearchClient
     {
        
         [Test]
@@ -29,18 +29,18 @@ namespace AutomationFinalProject.Tests
 
                 logInPage.LogIn(LogInLogOut.Username(), LogInLogOut.Password());
 
-                var clientSearchPage = new ClientSearchPage(driver);
+                var clientSearchPage = new SearchClientPage(driver);
                 clientSearchPage.ClickSearchClient();
-                clientSearchPage.SearchBy(ClientSearch.Email());
+                clientSearchPage.SearchBy(SearchClient.Email());
                 clientSearchPage.ClickSearch();
 
                 var tableText = clientSearchPage.GetTableText();
                 Console.WriteLine(tableText);
 
-                clientSearchPage.GetFirstName().ShouldBe(ClientSearch.Iryna());
+                clientSearchPage.GetFirstName().ShouldBe(SearchClient.Iryna());
                 Console.WriteLine($"First Name: {clientSearchPage.GetFirstName()}");
 
-                clientSearchPage.GetLastName().ShouldBe(ClientSearch.Shch());
+                clientSearchPage.GetLastName().ShouldBe(SearchClient.Shch());
                 Console.WriteLine($"Last Name: {clientSearchPage.GetLastName()}");
             }
         }

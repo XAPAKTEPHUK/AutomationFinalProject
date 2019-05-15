@@ -20,6 +20,8 @@ namespace AutomationFinalProject.TestData
         public string Email;
         public string Company;
         public const string teacherID = "Teacher One";
+        public const string zipCode = "60634";
+        public const string State = "Illinois";
         public const string addClientPage = "SST - Add Client";
 
 

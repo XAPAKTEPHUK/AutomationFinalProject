@@ -26,7 +26,7 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement AdreesOne => driver.FindElement(By.Name("address1"));
         private IWebElement City => driver.FindElement(By.Name("city"));
         private IWebElement Country => driver.FindElement(By.Name("country"));
-        private IWebElement State => driver.FindElement(By.Name("state"));
+        private SelectElement StateSelect => new SelectElement (driver.FindElement(By.Name("state")));
         private IWebElement ZipCode => driver.FindElement(By.Name("zipCode"));
         private IWebElement PhoneNumber => driver.FindElement(By.Name("phoneNumber"));
         private IWebElement Email => driver.FindElement(By.Name("email"));
@@ -47,6 +47,16 @@ namespace AutomationFinalProject.PageObjects
             CompanyName.SendKeys(user.Company);
         }
 
+        public void SelectState(string State)
+        {
+            StateSelect.SelectByText(State);
+        }
+
+        public void FillZipCode(string zipCode)
+        {
+            ZipCode.SendKeys(zipCode);
+        }
+
         public void ClickSave()
         {
             SaveButton.Click();
@@ -55,9 +65,7 @@ namespace AutomationFinalProject.PageObjects
         public string GetTableText()
         {
             return Table.Text;
-        }
-
-
+        }       
 
     }
 }

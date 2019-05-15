@@ -50,7 +50,7 @@ namespace AutomationFinalProject.Tests
                 Thread.Sleep(1000);
                
 
-                var clientSearchPage = new ClientSearchPage(driver);
+                var clientSearchPage = new SearchClientPage(driver);
 
                 clientSearchPage.SearchBy(IdNumber);
                 clientSearchPage.ClickSearch();

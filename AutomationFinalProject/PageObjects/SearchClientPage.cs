@@ -9,10 +9,10 @@ using AutomationFinalProject.TestData;
 
 namespace AutomationFinalProject.PageObjects
 {
-    public class ClientSearchPage
+    public class SearchClientPage
     {
         private IWebDriver driver;
-        public ClientSearchPage(IWebDriver _driver)
+        public SearchClientPage(IWebDriver _driver)
         {
             driver = _driver;
         }

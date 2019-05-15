@@ -38,9 +38,12 @@ namespace AutomationFinalProject.Tests
                 Console.WriteLine($"{AddClient.AddClientPage()} opens.");
 
                 addClientPage.SelectTeacherID(AddClient.TeacherID());
+
                 
                 var client = new AddClient();
                 addClientPage.FilloutContactInformation(client);
+                addClientPage.SelectState(AddClient.State);
+                addClientPage.FillZipCode(AddClient.zipCode);
                 addClientPage.ClickSave();
                 Thread.Sleep(1000);
 

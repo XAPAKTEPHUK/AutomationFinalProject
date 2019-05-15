@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutomationFinalProject.TestData
 {
-    static class ClientSearch
+    static class SearchClient
     {
         public const string eMail = "ilka@mailinator.com";
         public const string iryna = "Iryna";

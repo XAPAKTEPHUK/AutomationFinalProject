@@ -15,7 +15,7 @@ namespace AutomationFinalProject.Tests
 {
     [TestFixture]
 
-    public class SST001LogIn
+    public class SST001LogInLogOut
     {
         
         [Test]
@@ -47,8 +47,8 @@ namespace AutomationFinalProject.Tests
 
                 Thread.Sleep(1000);
 
-                driver.Title.ShouldBe(LogInLogOut.LogInPage());
-                Console.WriteLine($"{LogInLogOut.LogInPage()} opens again.");
+                    driver.Title.ShouldBe(LogInLogOut.LogInPage());
+                    Console.WriteLine($"{LogInLogOut.LogInPage()} opens again.");
 
             }
         }
