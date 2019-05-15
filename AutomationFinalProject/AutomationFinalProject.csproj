@@ -64,18 +64,21 @@
   <ItemGroup>
     <Compile Include="PageObjects\AddClientPage.cs" />
     <Compile Include="PageObjects\ClientSearchPage.cs" />
-    <Compile Include="PageObjects\DeleteClientPage.cs" />
+    <Compile Include="PageObjects\ClientPage.cs" />
     <Compile Include="PageObjects\EditClientPage.cs" />
     <Compile Include="PageObjects\LogInPage.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestData\Client.cs" />
-    <Compile Include="TestData\Constants.cs" />
-    <Compile Include="Tests\SST001.cs" />
-    <Compile Include="Tests\SST002.cs" />
-    <Compile Include="Tests\SST003.cs" />
-    <Compile Include="Tests\SST004.cs" />
-    <Compile Include="Tests\SST005.cs" />
+    <Compile Include="TestData\AddClient.cs" />
+    <Compile Include="TestData\ClientSearch.cs" />
+    <Compile Include="TestData\DeleteClient.cs" />
+    <Compile Include="TestData\EditClient.cs" />
+    <Compile Include="TestData\LogInLogOut.cs" />
+    <Compile Include="Tests\SST001LogIn.cs" />
+    <Compile Include="Tests\SST002AddClient.cs" />
+    <Compile Include="Tests\SST003ClientSearch.cs" />
+    <Compile Include="Tests\SST004DeleteClient.cs" />
+    <Compile Include="Tests\SST005EditClient.cs" />
     <Compile Include="WebDriver\DriverUtils.cs" />
   </ItemGroup>
   <ItemGroup>

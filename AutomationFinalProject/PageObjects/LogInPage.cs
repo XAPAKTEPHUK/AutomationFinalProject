@@ -22,31 +22,23 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement Password => _driver.FindElement(By.Id("password"));
         private IWebElement Login => _driver.FindElement(By.XPath("//*[@class='input-group']/button"));
         private IWebElement Admin => _driver.FindElement(By.ClassName("dropdown-toggle"));
-
         private IWebElement LogOut => _driver.FindElement(By.XPath("//*[@class='dropdown-menu']/li/a"));//have to change it to a more proper selector
+        private IWebElement AddClient => _driver.FindElement(By.PartialLinkText("Add Client"));
 
-        public void FillOutUsername(string username)
+        public void LogIn(string username, string password)
         {
-			//TODO: why do you need Click here?
-            Username.Click();
             Username.SendKeys(username);
-        }
-               
-        public void FillOutPassword(string password)
-        {
-	        //TODO: why do you need Click here?
-			Password.Click();
             Password.SendKeys(password);
-        }
-
-        public void ClickLogin()
-        {
             Login.Click();
+
+        }
+      
+        public void ClickAddClient()
+        {
+            AddClient.Click();
         }
 
-		//TODO: you can also have LogIn method, which would enter the uername, the password and click the Login button. 2 in one...
-
-       public string GetAdminURL()
+        public string GetAdminURL()
         {
             string URL = Admin.GetAttribute("href");
             return URL;

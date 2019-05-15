@@ -16,43 +16,44 @@ namespace AutomationFinalProject.PageObjects
         {
             driver = _driver;
         }
-
-		//TODO: the XPAth needs to be improved
-        private IWebElement SearchClients => driver.FindElement(By.XPath("//*[@id='navbar']/ul/li[2]/a")); //have to change it to a more proper selector
+        
+        private IWebElement SearchClients => driver.FindElement(By.LinkText("Clients"));            
         private IWebElement SearchField => driver.FindElement(By.Id("q"));
         private IWebElement SearchButton => driver.FindElement(By.XPath("//*[@class='btn btn-primary']"));
-
-		//TODO: not a good idea to hardcode values which can be changes into locators. Also the name of the elements are not correct - this is just an element, it does not check anything
-        private IWebElement CheckFirstName => driver.FindElement(By.XPath("//*[contains(text(),'Iryna')]"));
-        private IWebElement CheckLastName => driver.FindElement(By.XPath("//*[contains(text(),'Shch')]"));
+        private IWebElement Table => driver.FindElement(By.CssSelector("tbody"));
+        private IWebElement FirstName => driver.FindElement(By.XPath("//*[@class='table']/tbody/tr/td[3]"));
+        private IWebElement LastName => driver.FindElement(By.XPath("//*[@class='table']/tbody/tr/td[4]"));
+        
 
 
         public void ClickSearchClient()
         {
             SearchClients.Click();           
         }
-
-		//TODO: the name of the method is not clear
-        public void Search(string mail)
+		
+        public void SearchBy(string condition)
         {
 
-            SearchField.SendKeys(mail);
+            SearchField.SendKeys(condition);
         }
         public void ClickSearch()
         {
             SearchButton.Click();
         }
-
-	    //TODO: the name of the method is not clear
-		public string FirstName()
+	    
+		public string GetFirstName()
         {
-           return CheckFirstName.Text;
+           return FirstName.Text;
+        }
+	    
+		public string GetLastName()
+        {
+            return LastName.Text;
         }
 
-	    //TODO: the name of the method is not clear
-		public string LastName()
+        public string GetTableText()
         {
-            return CheckLastName.Text;
+            return Table.Text;
         }
 
     }

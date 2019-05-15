@@ -15,22 +15,15 @@ namespace AutomationFinalProject.PageObjects
         public AddClientPage(IWebDriver _driver)
         {
             driver = _driver;
-        }
-
-        private IWebElement AddClient => driver.FindElement(By.PartialLinkText("Add Client")); 
+        }        
 
 		//TODO: please create select element like:
         //private IWebElement TeacherSelect => driver.FindElement(By.XPath("//*[@name='teacherId']"));
 		private SelectElement TeacherSelect => new SelectElement(driver.FindElement(By.Name("teacherId")));
-
-		//TODO: you do not need this element
-		//private SelectElement TeacherOne => new SelectElement(driver.FindElement(By.XPath("//*[@name='teacherId']"))); 
         private IWebElement CompanyName => driver.FindElement(By.Name("company"));
         private IWebElement FirstName => driver.FindElement(By.Name("firstName"));
-        private IWebElement LastName => driver.FindElement(By.Name("lastName"));
-
-		//TODO: Address is misspelled
-        private IWebElement AdreesOne => driver.FindElement(By.Name("adress1"));
+        private IWebElement LastName => driver.FindElement(By.Name("lastName"));		
+        private IWebElement AdreesOne => driver.FindElement(By.Name("address1"));
         private IWebElement City => driver.FindElement(By.Name("city"));
         private IWebElement Country => driver.FindElement(By.Name("country"));
         private IWebElement State => driver.FindElement(By.Name("state"));
@@ -38,32 +31,33 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement PhoneNumber => driver.FindElement(By.Name("phoneNumber"));
         private IWebElement Email => driver.FindElement(By.Name("email"));
         private IWebElement SaveButton => driver.FindElement(By.XPath("//*[@class='btn btn-primary']"));
-                       
-        public void ClickAddClient()
-        {
-            AddClient.Click();  
-        }
-               
+        private IWebElement Table => driver.FindElement(By.CssSelector("tbody"));
+          
         public void SelectTeacherID(string teacherID)
         {
             TeacherSelect.SelectByText(teacherID);
-        }       
-       
-        
-        public void FilloutContactInformation(Client user)
+        }     
+               
+        public void FilloutContactInformation(AddClient user)
         {
             FirstName.SendKeys(user.FirstName);
             LastName.SendKeys(user.LastName);
             PhoneNumber.SendKeys(user.PhoneNumber);
             Email.SendKeys(user.Email);
             CompanyName.SendKeys(user.Company);
-
-
         }
+
         public void ClickSave()
         {
             SaveButton.Click();
         }
+
+        public string GetTableText()
+        {
+            return Table.Text;
+        }
+
+
 
     }
 }

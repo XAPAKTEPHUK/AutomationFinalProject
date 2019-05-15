@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AutomationFinalProject.TestData
 {
-    public class Client
+    public class AddClient
     {
-        public Client()
+        public AddClient()
         {
             SeedRandomData();       
         }
@@ -19,6 +19,8 @@ namespace AutomationFinalProject.TestData
         public string PhoneNumber;
         public string Email;
         public string Company;
+        public const string teacherID = "Teacher One";
+        public const string addClientPage = "SST - Add Client";
 
 
         public void SeedRandomData()
@@ -29,7 +31,16 @@ namespace AutomationFinalProject.TestData
             this.FirstName = faker.Name.FirstName();
             this.LastName = faker.Name.LastName();
             this.Company = faker.Company.CompanyName();
-        }       
+        }
 
+        public static string TeacherID()
+        {
+            return teacherID;
+        }
+
+        public static string AddClientPage()
+        {
+            return addClientPage;
+        }
     }
 }

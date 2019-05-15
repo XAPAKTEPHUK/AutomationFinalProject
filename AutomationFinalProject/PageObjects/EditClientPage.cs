@@ -22,16 +22,15 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement LastName => _driver.FindElement(By.Name("lastName"));
         private IWebElement Email => _driver.FindElement(By.Name("email"));
         private IWebElement SaveButton => _driver.FindElement(By.XPath("//*[@class='btn btn-primary']"));
+        private IWebElement Table => _driver.FindElement(By.CssSelector("tbody"));
 
-	    //TODO: The name of the mehod has to be improved
-		public void ChangeFirst(string newFirst)
+        public void ChangeFirstName(string newFirst)
         {
             FirstName.Clear();
             FirstName.SendKeys(newFirst);
         }
-
-	    //TODO: The name of the mehod has to be improved
-		public void ChangeLast(string newLast)
+	    
+		public void ChangeLastName(string newLast)
         {
             LastName.Clear();
             LastName.SendKeys(newLast);
@@ -48,6 +47,9 @@ namespace AutomationFinalProject.PageObjects
             SaveButton.Click();
         }
 
-        
+        public string GetTableText()
+        {
+            return Table.Text;
+        }
     }
 }

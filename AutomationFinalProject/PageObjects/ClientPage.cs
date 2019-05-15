@@ -8,48 +8,41 @@ using OpenQA.Selenium.Support.UI;
 using AutomationFinalProject.TestData;
 
 namespace AutomationFinalProject.PageObjects
-{
-	//TODO: as far as I undestand, this page's name should be ClientsPage
-    public class DeleteClientPage
+{	
+    public class ClientPage
     {
         private IWebDriver _driver;
-        public DeleteClientPage(IWebDriver driver)
+        public ClientPage(IWebDriver driver)
         {
             _driver = driver;
         }
-
-		//TODO: the xpath needs to be improved
-        private IWebElement ID => _driver.FindElement(By.XPath("//*[@class='table']/tbody/tr/td[1]/a")); //have to change it to a more proper selector
+        
+        private IWebElement ID => _driver.FindElement(By.XPath("//*[@class='table']/tbody/tr/td[1]")); 
         private IWebElement XButton => _driver.FindElement(By.XPath("//*[@class='glyphicon glyphicon-remove']")); 
         private IWebElement Confirm => _driver.FindElement(By.XPath("//*[contains(text(),'Confirm')]"));
         private IWebElement NoRecord => _driver.FindElement(By.XPath("//*[contains(text(),'No records found')]"));
-
-		//TODO: The name of the mehod has to be improved
-        public void Xbutton()
+        		
+        public void DeleteButton()
         {
             XButton.Click();
         }
-
-	    //TODO: The name of the mehod has to be improved
-		public string Id()
+	   
+		public string GetClientID()
         {
            return ID.Text;
         }
-
-	    //TODO: The name of the mehod has to be improved
-		public void IdSelect()
+	    
+		public void ClickClientID()
         {
             ID.Click();
         }
-
-	    //TODO: The name of the mehod has to be improved
-		public void ConfirmClick()
+	    
+		public void ConfirmButtonClick()
         {
             Confirm.Click();
         }
-
-	    //TODO: The name of the mehod has to be improved
-		public string NoRecordFound()
+	    
+		public string DeleteConfirm()
         {
             return NoRecord.Text;
         }
